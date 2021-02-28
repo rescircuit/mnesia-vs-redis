@@ -1,0 +1,14 @@
+version: '3.2'
+services:
+  app:
+    container_name: "app"
+    build: .
+    command: mix run -e MnesiaVsRedis.hello()
+    ports:
+      - '3000:3000'
+
+  cache:
+    container_name: "cache"
+    image: redis:6.2
+    ports:
+      - "6379:6379"
